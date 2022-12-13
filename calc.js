@@ -1,19 +1,21 @@
-// let money = 10000;
-// const buyACar = (car: any) => {
-//     return new Promise(((resolve, reject) => {
-//         setTimeout(() => {
-//             if (money >= 10000) {
-//                 resolve("can buy " + car);
-//             } else {
-//                 reject("Do not enough money");
-//             }
-//         }, 100);
-//     }))
-// }
-//
-// money = 1000001;
-// const promise = buyACar("Vinfast").then(value => {
-//     console.log(value);
-// }, error => {
-//     console.log(error);
-// })
+async function getSum(arr){
+    if (arr instanceof Array){
+        let sum = 0
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum;
+    }
+    throw new Error("Input data is incorrect")
+}
+
+async function f(){
+    try {
+        let result = await getSum([1,2,3,4,5,4])
+        console.log(result)
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+f()
